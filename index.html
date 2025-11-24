@@ -2,19 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My To-Do List</title>  
+  <title>My To-Do List</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">  
       <link rel="stylesheet" href="css/main.css">  
 </head>
 <body>
+   <div class="ruled-paper" role="main">
   <header>
-    <h1>Olivia's To-Do List</h1>
+    <div class="ruled-paper-header">
+      <h1>Olivia's To-Do List</h1>
+    </div>
   </header>
+
+  
   <main>
+    <div class="ruled-paper-body" contenteditable="true">
     <article id="todo">
       <h2>To Dos</h2>
       <ul class="todo">
         <li><input type="checkbox">Recieve Newsletter</li>
-        <li><input type="checkbox">Item 2</li>
+        <li><input type="checkbox">EAT DINNER</li>
         <li><input type="checkbox">Item 3</li>
         <li><input type="checkbox">Item 4</li>
         <li><input type="checkbox">Item 5</li>
@@ -46,11 +53,7 @@
       </ul>
     </article>
   </main>
-
-  <div class="ruled-paper" role="main">
-  <div class="ruled-paper-header"></div>
-  <div class="ruled-paper-body" contenteditable="true">Hello, world!</div>
+  </div>
   </div>
   
-</body>
-</html>
+  </main>
