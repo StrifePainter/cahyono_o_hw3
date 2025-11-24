@@ -4,26 +4,26 @@
 }
 
 body {
-    background-color: black;
     font-size: 16px;
     font-family: 'typewriter-thin';
-    color: rgb(189, 56, 56);
+    color: rgb(47, 14, 136);
 }
 
 main {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 }
 /*flex-wrap will make stuff shrink depending on window size*/
 
 /*rule paper pattern for bg*/
 :root {
-  --bg-color: #fff;
+  --bg-color: #feffed;
   --margin-line-color: #ec7063;
   --ruling-line-color: #85c1e9;
 }
 
+/*is this needed?*/
 *, *::before, *::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -81,21 +81,24 @@ article > h2 {
     padding: 4px 8px;
 }
 
-article:first-of-type {
-    /*border: 4px solid grey; if you're changing all three. will overwrite article*/
-    border-color:grey;
-}
+/*article:first-of-type {border: 4px solid grey; if you're changing all three. will overwrite article*/
 
+#todo {
+    border-radius: 255px 15px 225px 33px/15px 225px 75px 255px;
+    border:dashed 5px rgb(0, 19, 227);
+}
 #inprogress {
+    border-radius: 235px 15px 25px 15px/15px 25px 75px 55px;
     border-color: red;
 }
 
 #inprogress h2 {
-    color: red;
+    color: rgb(138, 94, 94);
 }
 
 #done {
-    border-color: green;
+    border-radius: 345px 15px 225px 125px/4px 225px 15px 255px;
+    border:dotted 5px rgb(9, 68, 0);
 }
 
 #done h2 {
@@ -112,13 +115,26 @@ ul li {
 }
 
 .todo li:nth-child(odd) {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(82, 191, 255, 0.2);
 }
 
+.todo li:nth-child(even) {
+    background-color: rgba(114, 82, 255, 0.2);
+}
+
+
 .inprogress li:nth-child(odd) {
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 128, 229, 0.5);
+}
+
+.inprogress li:nth-child(even) {
+    background-color: rgba(255, 148, 54, 0.5);
 }
 
 .done li:nth-child(odd) {
-    background-color: rgba(0, 255, 0, 0.5);
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+.done li:nth-child(even) {
+    background-color: rgba(226, 255, 41, 0.5);
 }
