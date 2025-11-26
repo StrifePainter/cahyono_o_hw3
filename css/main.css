@@ -161,7 +161,12 @@ ul li {
 }
 
 
-input[type="checkbox"]:checked + li {
+input[type="checkbox"]:checked {
     text-decoration: line-through;
     color: red;
 }
+
+/*
+- Why checkbox doesn't change
+- Does the ToDo part of list need checkboxes?
+- How to make the sections more separate?
