@@ -174,13 +174,13 @@ ul li {
 /* had to modify the selector a bit */
 /* A checkbox cannot display text decorations, colors, or most normal text styles.
 The <input> itself has no visible text to style. you need to add a span and modify the selector */
-input[type="checkbox"]:checked+span {
+input[type="checkbox"]:checked + span {
     text-decoration: line-through;
     color: red;
 }
 
-input[type="checkbox"]:checked + span::after {
-    content:"💕";
+input[type="checkbox"]:checked + span #finish {
+    content:"✅";
 }
 /*
 - Why checkbox doesn't change
