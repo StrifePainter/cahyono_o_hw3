@@ -16,6 +16,16 @@ main {
 }
 /*flex-wrap will make stuff shrink depending on window size*/
 
+h1 {
+    font-size: 45px;
+    color: rgb(74, 137, 255);
+    text-shadow: 
+   -1px -1px 0 rgb(241, 4, 4),
+   1px -1px 0 rgb(28, 221, 255),
+   -1px 1px 0 rgb(17, 0, 255),
+   1px 2px 0 rgba(4, 16, 70, 0.473);
+}
+
 /*rule paper pattern for bg*/
 :root {
   --bg-color: #feffed;
@@ -23,12 +33,6 @@ main {
   --ruling-line-color: #85c1e9;
 }
 
-/*is this needed?*/
-*, *::before, *::after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 body {
   width: 100vw;
@@ -74,10 +78,12 @@ header h1::before {
     content: "";
     position: absolute;
     Top: 55px;
+    Right: 485px;
     width: 300px;
     height: 19px;
     transform: skew(-12deg) translateY(0%);
     background: rgba(255, 221, 3, 0.4);
+    filter: contrast(500);
 }
 
 article {
@@ -85,6 +91,7 @@ article {
     height: 500px;
     border: 4px solid rgb(51, 37, 37);
     border-radius: 10px;
+    margin-left: 20px;
 }
 
 article > h2 {
@@ -101,9 +108,8 @@ article h2::before {
     height: 19px;
     transform: skew(-12deg) translateY(0%);
     background: rgba(255, 221, 3, 0.3);
+    filter: contrast(500);
 }
-
-/*article:first-of-type {border: 4px solid grey; if you're changing all three. will overwrite article*/
 
 #todo {
     border-radius: 255px 15px 225px 33px/15px 225px 75px 255px;
@@ -137,6 +143,7 @@ ul li {
 
 .todo li:nth-child(odd) {
     background-color: rgba(82, 191, 255, 0.2);
+    filter: contrast(500);
 }
 
 .todo li:nth-child(even) {
@@ -146,6 +153,7 @@ ul li {
 
 .inprogress li:nth-child(odd) {
     background-color: rgba(255, 128, 229, 0.5);
+    filter: contrast(500);
 }
 
 .inprogress li:nth-child(even) {
@@ -154,19 +162,27 @@ ul li {
 
 .done li:nth-child(odd) {
     background-color: rgba(0, 255, 0, 0.3);
+    filter: contrast(500);
 }
 
 .done li:nth-child(even) {
     background-color: rgba(226, 255, 41, 0.5);
+    filter: contrast(500);
 }
 
 
-input[type="checkbox"]:checked {
+/* had to modify the selector a bit */
+/* A checkbox cannot display text decorations, colors, or most normal text styles.
+The <input> itself has no visible text to style. you need to add a span and modify the selector */
+input[type="checkbox"]:checked+span {
     text-decoration: line-through;
     color: red;
 }
 
+input[type="checkbox"]:checked + span::after {
+    content:"💕";
+}
 /*
 - Why checkbox doesn't change
-- Does the ToDo part of list need checkboxes?
-- How to make the sections more separate?
+- Does the ToDo part of list need checkboxes? no
+- How to make the sections more separate? margin
