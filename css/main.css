@@ -82,11 +82,6 @@ body {
     position: absolute;
 }
 
-#s {
-    transform: translate(-140%, 0%)
-    scale(60%);
-    position: absolute;
-}
 
 #swirl {
     right: -100px;
@@ -99,6 +94,26 @@ body {
     right: 110px;
     top: -190px;
     transform: scale(18%);
+    position: absolute;
+}
+
+#s {
+    transform: translate(-140%, 0%)
+    scale(60%);
+    position: absolute;
+}
+
+#heart {
+    left: -50px;
+    bottom: -160px;
+    transform: scale(30%);
+    position: absolute;
+}
+
+#angelwings {
+    right: -85px;
+    bottom: -160px;
+    transform: scale(60%);
     position: absolute;
 }
 
@@ -178,7 +193,6 @@ ul li {
 
 .todo li:nth-child(odd) {
     background-color: rgba(82, 191, 255, 0.2);
-    filter: contrast(500);
 }
 
 .todo li:nth-child(even) {
@@ -188,7 +202,7 @@ ul li {
 
 .inprogress li:nth-child(odd) {
     background-color: rgba(255, 128, 229, 0.5);
-    filter: contrast(500);
+
 }
 
 .inprogress li:nth-child(even) {
@@ -197,12 +211,10 @@ ul li {
 
 .done li:nth-child(odd) {
     background-color: rgba(0, 255, 0, 0.3);
-    filter: contrast(500);
 }
 
 .done li:nth-child(even) {
     background-color: rgba(226, 255, 41, 0.5);
-    filter: contrast(500);
 }
 
 #quote {
@@ -220,14 +232,24 @@ ul li {
     margin: 0; 
     height: 50px; /* Adjust height as needed */
 }
-input[type="checkbox"]:checked + span {
-    text-decoration: line-through;
-    color: #3200a7; 
-    opacity: 0.6; 
+
+@keyframes party-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px) rotate(0deg); }
 }
 
-#done input[type="checkbox"]:checked + span::after {
-    content: " ✅";
-    color: green; 
+#quote:hover {
+    animation: party-bounce 0.3s ease-in-out infinite;
+}
+
+
+#inprogress input[type="checkbox"]:checked + span::after {
+    content: " ⭐🐝";
     opacity: 1;
+}
+
+#done input[type="checkbox"]:checked + span {
+    text-decoration: line-through; /* ⭐ Overrides the global rule and removes the strikethrough ⭐ */
+    color: green; /* Example: use green for done status */
+    opacity: 1; /* Example: make the text fully visible again */
 }
