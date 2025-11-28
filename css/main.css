@@ -3,6 +3,10 @@
   src: url('../fonts/JMH-Typewriter-Thin.ttf') format('truetype');
 }
 
+.hidden{
+    display:none;
+}
+
 body {
     font-size: 16px;
     font-family: 'typewriter-thin';
@@ -16,6 +20,16 @@ main {
 }
 /*flex-wrap will make stuff shrink depending on window size*/
 
+h1 {
+    font-size: 45px;
+    color: rgb(74, 137, 255);
+    text-shadow: 
+   -1px -1px 0 rgb(241, 4, 4),
+   1px -1px 0 rgb(28, 221, 255),
+   -1px 1px 0 rgb(17, 0, 255),
+   1px 2px 0 rgba(4, 16, 70, 0.473);
+}
+
 /*rule paper pattern for bg*/
 :root {
   --bg-color: #feffed;
@@ -23,12 +37,6 @@ main {
   --ruling-line-color: #85c1e9;
 }
 
-/*is this needed?*/
-*, *::before, *::after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 body {
   width: 100vw;
@@ -61,7 +69,53 @@ body {
   line-height: 2em;
 }
 
+#star {
+    transform: translate(-20%, -40%)
+    scale(20%);
+    position: absolute;
+    
+}
 
+#triangles {
+    transform: translate(30%,-45%)
+    scale(20%);
+    position: absolute;
+}
+
+
+#swirl {
+    right: -100px;
+    top: -160px;
+    transform: scale(18%);
+    position: absolute;
+}
+
+#lightning {
+    right: 110px;
+    top: -190px;
+    transform: scale(18%);
+    position: absolute;
+}
+
+#s {
+    transform: translate(-140%, 0%)
+    scale(60%);
+    position: absolute;
+}
+
+#heart {
+    left: -50px;
+    bottom: -160px;
+    transform: scale(30%);
+    position: absolute;
+}
+
+#angelwings {
+    right: -85px;
+    bottom: -160px;
+    transform: scale(60%);
+    position: absolute;
+}
 
 header h1 {
     text-align: center;
@@ -69,15 +123,17 @@ header h1 {
 }
 
 header h1::before {
-
-    padding: 10px;
+    padding: 0;
     content: "";
     position: absolute;
-    Top: 55px;
-    width: 300px;
-    height: 19px;
-    transform: skew(-12deg) translateY(0%);
+    left: 50%;
+    transform: skew(-12deg) translateY(0%) translateX(-50%); 
+    top: 88px; 
+    width: 100%;
+    max-width: 500px;
+    height: 22px;
     background: rgba(255, 221, 3, 0.4);
+    filter: contrast(500);
 }
 
 article {
@@ -85,6 +141,7 @@ article {
     height: 500px;
     border: 4px solid rgb(51, 37, 37);
     border-radius: 10px;
+    margin-left: 20px;
 }
 
 article > h2 {
@@ -101,9 +158,8 @@ article h2::before {
     height: 19px;
     transform: skew(-12deg) translateY(0%);
     background: rgba(255, 221, 3, 0.3);
+    filter: contrast(500);
 }
-
-/*article:first-of-type {border: 4px solid grey; if you're changing all three. will overwrite article*/
 
 #todo {
     border-radius: 255px 15px 225px 33px/15px 225px 75px 255px;
@@ -146,6 +202,7 @@ ul li {
 
 .inprogress li:nth-child(odd) {
     background-color: rgba(255, 128, 229, 0.5);
+
 }
 
 .inprogress li:nth-child(even) {
@@ -160,13 +217,39 @@ ul li {
     background-color: rgba(226, 255, 41, 0.5);
 }
 
-
-input[type="checkbox"]:checked {
-    text-decoration: line-through;
-    color: red;
+#quote {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 15px;
+    overflow: visible; 
+    width: 100%;
 }
 
-/*
-- Why checkbox doesn't change
-- Does the ToDo part of list need checkboxes?
-- How to make the sections more separate?
+#bee, #beeb {
+    /* Remove float and margin rules */
+    float: none; 
+    margin: 0; 
+    height: 50px; /* Adjust height as needed */
+}
+
+@keyframes party-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px) rotate(0deg); }
+}
+
+#quote:hover {
+    animation: party-bounce 0.3s ease-in-out infinite;
+}
+
+
+#inprogress input[type="checkbox"]:checked + span::after {
+    content: " ⭐🐝";
+    opacity: 1;
+}
+
+#done input[type="checkbox"]:checked + span {
+    text-decoration: line-through; /* ⭐ Overrides the global rule and removes the strikethrough ⭐ */
+    color: green; /* Example: use green for done status */
+    opacity: 1; /* Example: make the text fully visible again */
+}
