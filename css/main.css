@@ -3,6 +3,10 @@
   src: url('../fonts/JMH-Typewriter-Thin.ttf') format('truetype');
 }
 
+.hidden{
+    display:none;
+}
+
 body {
     font-size: 16px;
     font-family: 'typewriter-thin';
@@ -65,7 +69,38 @@ body {
   line-height: 2em;
 }
 
+#star {
+    transform: translate(-20%, -40%)
+    scale(20%);
+    position: absolute;
+    
+}
 
+#triangles {
+    transform: translate(30%,-45%)
+    scale(20%);
+    position: absolute;
+}
+
+#s {
+    transform: translate(-140%, 0%)
+    scale(60%);
+    position: absolute;
+}
+
+#swirl {
+    right: -100px;
+    top: -160px;
+    transform: scale(18%);
+    position: absolute;
+}
+
+#lightning {
+    right: 110px;
+    top: -190px;
+    transform: scale(18%);
+    position: absolute;
+}
 
 header h1 {
     text-align: center;
@@ -73,15 +108,15 @@ header h1 {
 }
 
 header h1::before {
-
-    padding: 10px;
+    padding: 0;
     content: "";
     position: absolute;
-    Top: 55px;
-    Right: 485px;
-    width: 300px;
-    height: 19px;
-    transform: skew(-12deg) translateY(0%);
+    left: 50%;
+    transform: skew(-12deg) translateY(0%) translateX(-50%); 
+    top: 88px; 
+    width: 100%;
+    max-width: 500px;
+    height: 22px;
     background: rgba(255, 221, 3, 0.4);
     filter: contrast(500);
 }
@@ -170,19 +205,29 @@ ul li {
     filter: contrast(500);
 }
 
+#quote {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 15px;
+    overflow: visible; 
+    width: 100%;
+}
 
-/* had to modify the selector a bit */
-/* A checkbox cannot display text decorations, colors, or most normal text styles.
-The <input> itself has no visible text to style. you need to add a span and modify the selector */
+#bee, #beeb {
+    /* Remove float and margin rules */
+    float: none; 
+    margin: 0; 
+    height: 50px; /* Adjust height as needed */
+}
 input[type="checkbox"]:checked + span {
     text-decoration: line-through;
-    color: red;
+    color: #3200a7; 
+    opacity: 0.6; 
 }
 
-input[type="checkbox"]:checked + span #finish {
-    content:"✅";
+#done input[type="checkbox"]:checked + span::after {
+    content: " ✅";
+    color: green; 
+    opacity: 1;
 }
-/*
-- Why checkbox doesn't change
-- Does the ToDo part of list need checkboxes? no
-- How to make the sections more separate? margin
