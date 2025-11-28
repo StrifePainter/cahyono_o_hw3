@@ -227,10 +227,9 @@ ul li {
 }
 
 #bee, #beeb {
-    /* Remove float and margin rules */
     float: none; 
     margin: 0; 
-    height: 50px; /* Adjust height as needed */
+    height: 50px;
 }
 
 @keyframes party-bounce {
@@ -249,7 +248,7 @@ ul li {
 }
 
 #done input[type="checkbox"]:checked + span {
-    text-decoration: line-through; /* ⭐ Overrides the global rule and removes the strikethrough ⭐ */
-    color: green; /* Example: use green for done status */
-    opacity: 1; /* Example: make the text fully visible again */
+    text-decoration: line-through;
+    color: green;
+    opacity: 1;
 }
